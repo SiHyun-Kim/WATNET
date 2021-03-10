@@ -1,0 +1,1858 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+	color: #000;
+  text-decoration: none;
+}
+
+button {
+    outline: none;
+}
+
+.hidden {
+	display: none !important;
+	position: absolute;
+}
+
+ul {
+    list-style: none;
+}
+
+ul>li {
+    display: inline;
+    font-size: 20px;
+    margin: 10px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#header-right-section {
+	display: flex;
+}
+
+/* ------------------- header drop 프로필 */
+#dropUl-pContainer {
+	position: relative;
+	text-align: center;
+}
+
+#header-myProfileImg {
+	width: 45px;
+	height: 45px;
+	margin: auto 20px;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+#header-dropUl {
+	z-index: 2;
+	opacity: 0;
+	visibility: hidden;
+	border: 1px solid #cfcbcb;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	left: -100px;
+	top: 50px;
+}
+
+#dropUl-pContainer:hover #header-dropUl{
+	opacity: 1;
+	visibility: visible;
+}
+
+.dropUl-firstLi > a {
+	width: 100%;
+}
+
+#header-dropUl > li {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 20px 0;
+	border-bottom: 1px solid #cfcbcb;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #fff;
+	justify-content: center;
+	align-items: center;
+}
+
+#header-nickname {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+#goToMyPartyBtn,
+#chargePointBtn {
+	width: 150px;
+	height: 30px;
+	background-color: #fff;
+	color: #DB202C;
+	font-weight: bold;
+	border: 1px solid #DB202C;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+#goUp {
+	background: url("/res/img/up.png") no-repeat;
+	background-position: center;
+  background-size: cover;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	border: 0;
+	border-radius: 50%;
+	box-shadow: 3px 3px 3px #000;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+#goUp:hover {
+	background: url("/res/img/up-hover.png") no-repeat;
+	background-position: center;
+ 	background-size: cover;
+}
+
+.nav-container {
+    display: flex;
+    width: 100%;
+    height: 90px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+    border-bottom: 1px solid #cfcbcb;
+}
+
+#watnet-logo {
+    width: 100px;
+    height: 40px;
+}
+
+#logout-anchor {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#index-login-btn,
+#index-logout-btn {
+    width: 90px;
+    height: 32px;
+    border-radius: 24px;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #DB202C;
+    color: #DB202C;
+    cursor: pointer;
+    font-size: 16px;
+    margin: auto;
+}
+
+
+
+/* ------------------index css------------ */
+
+.index-first-container {
+    width: 100%;
+    height: 1000px;
+    background-image: url("/res/img/background.png");
+    background-size: auto 470px;
+    background-repeat: repeat-x;
+    background-position-y: 100%;
+    padding: 44px 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.index-intro {
+    width: 580px;
+    height: 380px;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.index-span-div {
+    margin-top: 50px;
+}
+
+.index-span {
+    font-size: 50px;
+    color: rgba(0,0,0,0.7);
+    font-weight: 900;
+}
+
+.index-second-span {
+    font-size: 24px;
+    font-weight: 100;
+    color: #707070;
+}
+
+.index-img-container {
+    display: flex;
+}
+
+#netflix-logo,
+#watcha-logo {
+    margin: 10px;
+    width: 90px;
+    height: 90px;
+}
+
+.phone-img {
+	position: relative;
+	z-index: 1;
+}
+
+#phone {
+  width: 600px;
+	z-index: 1;
+}
+
+.change-img {
+	position: absolute;
+	top: 54px;
+	left: 150px;
+	width: 300px;
+	height: 630px;
+	z-index: -1;
+}
+
+.index-second-container {
+    width: 100%;
+    height: 900px;
+    padding: 44px 35px;
+    margin: 50px 0;
+}
+
+.intro-span {
+    font-size: 35px;
+    color: #535353;
+    font-weight: bold;
+    margin: 50px;
+}
+
+#underline {
+    width: 140px;
+    height: 1px;
+    margin: 18px 50px 0;
+    border-bottom: 1px solid #000;
+}
+
+.intro-box {
+    width: 100%;
+    height: 500px;
+}
+
+.intro-box {
+    display: flex;
+    width:100%;
+    justify-content: center;
+    padding: 120px 20px 0;
+}
+
+.intro-left {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    border-right: 0.5px solid #e3e3e3;
+}
+
+.intro-right {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+}
+
+#intro-left-img {
+    width: 163px;
+    height: 146px;
+    margin: 20px 0 0 50px;
+}
+
+#intro-right-img {
+    width: 186px;
+    height: 168px;
+}
+
+.intro-box-title-span {
+    margin-top: 70px;
+    font-size: 27px;
+    margin-bottom: 18px;
+    font-weight: bold;
+    color: #535353;
+}
+
+.intro-box-span {
+    margin: 7px;
+    font-size: 21px;
+    color: #707070;
+}
+
+#up {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    cursor: pointer;
+}
+
+#up-img {
+    width: 34px;
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+#up-span {
+    font-size: 23px;
+    color: #9d9d9d;
+    margin-bottom: 150px;
+}
+
+
+/* ----------------------------------login css--------------- */
+.login-form {
+    max-width: 400px;
+    margin: 120px auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-watnet-logo {
+    width: 170px;
+    margin-bottom: 40px;
+}
+
+.login-form > input {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    color: #333;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;
+}
+
+.login-form > input:focus {
+    outline: none;
+    box-shadow: 0 0 3px 1px #DB202C;
+}
+
+.login-anchor {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.login-anchor > a {
+    color: #333;
+    font-size: 14px;
+}
+
+#login-btn {
+    width: 100%;
+    height: 60px;
+    margin: 20px 0;
+    padding: 0 10px;
+    font-size: 18px;
+    background-color:#DB202C;
+    border: 0;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.login-span {
+    width: 100%;
+    font-size: 14px;
+    color: #666666;
+}
+
+.login-span > .text-red {
+    color:#DB202C;
+}
+
+.sns-login-container {
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #dddddd;
+    position: relative;
+}
+
+.sns-login-container::before {
+    content: 'SNS LOGIN';
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    display: block;
+    width: 80px;
+    margin-left: -40px;
+    font-size: 12px;
+    color: #666666;
+    background-color: white;
+    text-align: center;
+}
+
+.sns-login-img {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+
+/* -------------------------------------------------------login-modal css*/
+
+#md_open {
+	cursor: pointer;
+}
+
+.modal{
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+.md_overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%; height: 100%;
+	position: absolute;
+}
+
+.md_content {
+	width: 400px;
+	position: relative;
+	padding: 50px 100px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 6px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
+}
+
+#md_close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: #fff;
+	border: 0;
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.md_input {
+	width: 100%;
+	height: 38px;
+	margin: 5px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+}
+
+#md_find,
+#md_submit {
+	color: #fff;
+    border: solid 1px #DB202C;
+    background-color: #DB202C;
+    min-width: auto;
+    padding: 0 16px;
+    width: 100px;
+    height: 32px;
+    font-size: 14px;
+    line-height: 30px;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------join css---------------- */
+
+.join-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.join-h3 {
+    margin: 56px 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.id_pw-form,
+.join_userinfo-form,
+.join_etc-form {
+    padding: 25px 40px;
+    border: solid 1px #bcbcbc;
+    border-radius: 20px;
+}
+
+.id_pw-list,
+.join_userinfo-list,
+.join_etc-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.id_pw-list li,
+.join_userinfo-list li,
+.join_etc-list li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.id_pw-list > li > span,
+.join_userinfo-list > li > span,
+.join_etc-list > li > span,
+.profileImg-container > span {
+    display: inline-block;
+    width: 120px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #333333;
+}
+
+.id_pw-list > li > input,
+.join_userinfo-list > li > input,
+.join_etc-list > li > input {
+    width: 180px;
+    height: 38px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    outline: none;
+    margin-right: 10px;
+}
+
+#idChk,
+#nicknameChk,
+#phoneNumberChk {
+    padding: 0 16px;
+    height: 32px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 17px;
+    width: 120px;
+    color: #DB202C;
+    border: solid 1px #DB202C;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.join_etc-list > li > .explanation,
+.profileImg-container > .explanation,
+.join_userinfo-list > li > .explanation {
+    display: inline;
+    font-size: 11px;
+    font-weight: 300;
+    color: #888888;
+    line-height: 16px;
+    word-break: keep-all;
+}
+
+#profileImg {
+    display: none;
+}
+
+#profileImg-btn {
+    display: inline-block;
+    color: #DB202C;
+    border: solid 1px #DB202C;
+    min-width: auto;
+    padding: 0 16px;
+    height: 32px;
+    font-size: 14px;
+    line-height: 30px;
+    border-radius: 17px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.join-btn-container {
+    margin: 60px 0;
+    text-align: center;
+}
+
+#cancleBtn,
+#joinBtn {
+    width: 240px;
+    height: 70px;
+    margin: 2px 0;
+    padding: 0 10px;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#cancleBtn {
+    background-color: #cecdd4;
+}
+
+#joinBtn {
+    background-color: #DB202C;
+}
+
+#idChkCheckbox,
+#nicknameChkCheckbox,
+#phoneNumberChkCheckbox {
+	display: none;
+}
+
+
+/* -------------------------------------------board.html css */
+.border-main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.recVideo-container {
+    width: 100%;
+    padding: 40px 40px 0
+}
+
+.recVideo-img {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.recVideo-img > img {
+    width: 24%;
+    height: auto;
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/*------------------------------- board modal 창 */
+.recVideo_modal{
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+.recVideo_md_overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%; height: 100%;
+	position: absolute;
+}
+
+.recVideo_md_content {
+	width: 800px;
+    height: 440px;
+	position: relative;
+	background-color: #000;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 6px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
+}
+
+#recVideo_md_close {
+	position: absolute;
+	top: -35px;
+	right: 5px;
+	background: transparent;
+	color: #fff;
+	border: 0;
+	cursor: pointer;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 40px 0;
+    align-items: center;
+}
+
+#makePartyBtn {
+    width: 100px;
+    height: 30px;
+    color: #DB202C;
+    border: 1px solid #DB202C;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+.board-container {
+    padding: 0 40px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.board-article {
+    width: 280px;
+    margin: 10px;
+    padding: 20px;
+    border: solid 1px #dddddd;
+    border-radius: 20px;
+    background-color: #fff;
+    /* display: inline-block; */
+}
+
+.artilce-h2 {
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.party-name {
+    display: inline-block;
+    font-size: 14px;
+    height: 36px;
+}
+
+.article-img {
+    margin: 14px 0;
+}
+
+.article-img > img {
+    width: 32px;
+    height: 32px;
+}
+
+.unrecruited {
+    opacity: 0.3;
+}
+
+.article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.party-date {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pay-point {
+    font-size: 14px;
+}
+
+.pay-point > .price {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px;
+}
+
+.board-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+#moreSelect {
+    width: 80px;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background-color:#DB202C;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ---------------------makeParty css부분------------ */
+.makeParty-container {
+    border: solid 1px #bcbcbc;
+    border-radius: 20px;
+    margin: 50px 10%;
+    padding: 0 60px;
+}
+
+.makeParty-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.makeParty-list > li {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    
+}
+
+.makeParty-list-span {
+    padding: 14px 0;
+    display: inline-block;
+    width: 120px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#service-select {
+    width: 350px;
+    height: 30px;
+    color: #888;
+    font-size: 13px;
+    border: solid 1px #ececec;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    outline: none;
+}
+
+#service-select:focus {
+    outline: none;
+    box-shadow: 0 0 3px 1px #DB202C;
+}
+
+.makeParty-input {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    border: solid 1px #dddddd;
+}
+
+.makeParty-input:focus,
+#makeParty-detail-rule:focus {
+    outline: none;
+    box-shadow: 0 0 3px 1px #DB202C;
+}
+
+#makeParty-startDt {
+	width: 150px;
+}
+
+.width-200 {
+    width: 200px;
+}
+
+#makeParty-title-input {
+    width: 400px;
+    
+}
+
+.start-date > span,
+.progress-date > span {
+    font-size: 13px;
+    margin-right: 20px;
+}
+
+#progress-mon-input {
+    width: 45px;
+}
+
+.redColor {
+    color: #DB202C;
+}
+
+#makeParty-detail-rule {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    border: 1px solid #dddddd;
+}
+
+.makeParty-btn-container {
+    margin: 60px 0;
+    text-align: center;
+}
+
+#makeParty-cancleBtn,
+#makeParty-submitBtn {
+    width: 240px;
+    height: 70px;
+    margin: 2px 0;
+    padding: 0 10px;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#makeParty-cancleBtn {
+    background-color: #cecdd4;
+}
+
+#makeParty-submitBtn {
+    background-color: #DB202C;
+}
+
+/* -------------------------------------- detail css */
+.detail-main-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 40px 0;
+    align-items: center;
+    border-bottom: 2px solid #DB202C;
+}
+
+.detail-title-container {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    padding: 40px 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.detail-title-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.detail-title-categoryNm {
+    font-size: 18px;
+    color: #666666;
+}
+
+.detail-title {
+    font-size: 30px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.detail-title-span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-leader-container {
+    width: 100%;
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dddddd;
+    font-size: 15px;
+    color: #333333;
+}
+
+.leader-info {
+    display: flex;
+    align-items: center;
+}
+
+.leader-profileImg {
+    width: 32px;
+    height: 32px;
+    margin-right: 20px;
+}
+
+.detail-startDt {
+    width: 100%;
+    font-size: 15px;
+    color: #333333;
+    padding: 18px 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.detail-endDt {
+    width: 100%;
+    font-size: 15px;
+    color: #333333;
+    padding: 18px 0;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.redSpan {
+    font-size: 24px;
+    font-weight: bold;
+    color: #db202c;
+}
+
+.detail-user-table {
+    padding: 70px 0;
+    display: flex;
+    border-bottom: 1px solid #dddddd;
+}
+
+.user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 170px;
+    color: #333333;
+    font-size: 14px;
+}
+
+.user-container > img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.detail-text {
+    width: 100%;
+    border: 1px solid #dddddd;
+}
+
+#detail-ctnt {
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    white-space: pre-line;
+    font-size: 16px;
+    color: #333333;
+}
+
+.detail-checkbox {
+    padding: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #dddddd;
+}
+
+.detail-checkbox > input {
+    margin-right: 5px;
+}
+
+.detail-btn-container {
+    margin: 60px 0;
+    text-align: center;
+}
+
+#detail-cancleBtn,
+#detail-submitBtn,
+#detail-deleteBtn {
+    width: 240px;
+    height: 70px;
+    margin: 2px 0;
+    padding: 0 10px;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#detail-cancleBtn {
+    background-color: #cecdd4;
+}
+
+#detail-submitBtn,
+#detail-deleteBtn {
+    background-color: #DB202C;
+}
+
+/* -------------------------------- myParty css */
+.myParty-main-container {
+    position: relative;
+}
+
+.myParty-background {
+    width: 100%;
+    height: 500px;
+    background-image: url(/res/img/myparty-background.svg);
+    background-size: cover;
+}
+
+.myParty-container {
+    width: 90%;
+    max-width: 1280px;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.myParty-info {
+    padding: 60px;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 3px 3px 3px gray;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.myParty-title-span {
+	display: flex;
+    flex-direction: column;
+}
+
+.myParty-category {
+    font-size: 24px;
+    font-weight: bold;
+    color: #bcbcbc;
+    margin-bottom: 15px;
+}
+
+.myParty-info-span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.myParty-user-container {
+    display: flex;
+    height: 200px;
+}
+
+.myParty-user {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.myParty-user > img {
+    width: 80%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 16px;
+}
+
+.myParty-user > span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666666;
+}
+
+#chkShareInfo {
+    width: 100%;
+    height: 70px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    border: 0;
+    border-radius: 12px;
+    background-color: rgb(17, 199, 143);
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.myParty-btn {
+    display: flex;
+    height: 70px;
+}
+
+#openPostBtn {
+    flex-grow: 1;
+    font-size: 24px;
+    font-weight: bold;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-right: 0;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#quitPartyBtn {
+    flex-grow: 1;
+    font-size: 24px;
+    font-weight: bold;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.modal{
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+.md_overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%; height: 100%;
+	position: absolute;
+}
+
+.shareInfo_md_content {
+	width: 400px;
+	position: relative;
+	padding: 20px 50px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.20), 0 6px 6px rgba(0, 0, 0, 0.20);
+}
+
+.shareInfo-title {
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #666666;
+	border-bottom: 1px solid #dddddd;
+	text-align: center;
+}
+
+.shareInfo-info-div {
+	width: 100%;
+	padding: 20px 0;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #dddddd;
+	margin-bottom: 10px;
+}
+
+.shareInfo-data {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.shareInfo-span {
+	width: 50px;
+	font-size: 16px;
+	color: #bcbcbc;
+}
+
+.shareInfo-ID,
+.shareInfo-PW {
+	flex-grow: 1;
+	font-size: 18px;
+	font-weight: bold;
+	color: #666666;
+}
+
+.shareInfo-data > button {
+	width: 50px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	background-color: #fff;
+	border-radius: 20px;
+	border: 1px solid #bcbcbc;
+	cursor: pointer;
+}
+
+#shareInfo_md_close {
+	border: 0;
+	font-size: 20px;
+	font-weight: bold;
+	width: 100%;
+	background-color: #fff;
+	color: #bcbcbc;
+	cursor: pointer;
+}
+
+
+
+
+.post-modal-container {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-md_overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 100%; height: 100%;
+	position: absolute;
+}
+
+.post-modal-content {
+    z-index : 1;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+}
+
+.view-post-container {
+    background-color: #9bbbd4;
+    padding-bottom: 10px;
+}
+
+.view-post {
+    height: 600px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    padding: 20px 0;
+}
+
+.view-post::-webkit-scrollbar {
+    display: none;
+}
+
+.post-container {
+    display: flex;
+    padding: 0 10px;
+    position: relative;
+}
+
+.post-profileImg {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.post-userNickname {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.post-ctnt {
+    width: 250px;
+    background-color: #fff;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    position: relative;
+    white-space: pre-line;
+    word-break: break-all;
+}
+
+.post-ctnt:after {
+    border-top: 8px solid #fff;
+    border-left: 15px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    content: "";
+    position:absolute;
+    top:10px;
+    left:-15px;
+}
+
+.post-dt {
+    font-size: 12px;
+    position: absolute;
+    bottom: 15px;
+    right: 35px;
+    color: #556677;
+}
+
+.myPost {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.myPost > .post-profileImg,
+.myPost > .post-username_ctnt > .post-userNickname {
+    display: none;
+}
+
+.myPost > .post-username_ctnt > .post-ctnt {
+    background-color: #fef01b;
+}
+
+.myPost > .post-username_ctnt > .post-ctnt:after {
+    border: 0;
+    content: "";
+    position:absolute;
+}
+
+.myPost > .post-dt {
+    bottom: 15px;
+    left: 85px;
+}
+
+#post-write {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    border: 0;
+    resize: none;
+    overflow-y:hidden;
+}
+
+.post-write-container {
+    display: flex;
+    background-color: #fff;
+}
+
+.post-write-btn {
+    display: flex;
+    flex-direction: column;
+}
+
+#post-submitBtn,
+#closePostModalBtn {
+    width: 50px;
+    height: 30px;
+    margin: 10px;
+    border: 0;
+    cursor: pointer;
+}
+
+#post-submitBtn {
+    background-color: #fef01b;
+}
+
+#closePostModalBtn {
+    background-color: #CECDD4;
+}
+
+
+/* ---------------------------- editProfile css 부분 */
+
+.edit-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.edit-h3 {
+    margin: 56px 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.pw-form,
+.edit_userinfo-form,
+.edit_etc-form {
+    padding: 25px 40px;
+    border: solid 1px #bcbcbc;
+    border-radius: 20px;
+}
+
+.pw-list,
+.edit_userinfo-list,
+.edit_etc-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.pw-list li,
+.edit_userinfo-list li,
+.edit_etc-list li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.pw-list > li > span,
+.edit_userinfo-list > li > span,
+.edit_etc-list > li > span,
+.profileImg-container > span {
+    display: inline-block;
+    width: 120px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #333333;
+}
+
+.pw-list > li > input,
+.edit_userinfo-list > li > input,
+.edit_etc-list > li > input {
+    width: 180px;
+    height: 38px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    outline: none;
+    margin-right: 10px;
+}
+
+#nicknameChk,
+#phoneNumberChk {
+    padding: 0 16px;
+    height: 32px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 17px;
+    width: 120px;
+    color: #DB202C;
+    border: solid 1px #DB202C;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.edit_etc-list > li > .explanation,
+.profileImg-container > .explanation,
+.edit_userinfo-list > li > .explanation {
+    display: inline;
+    font-size: 12px;
+    font-weight: 300;
+    color: #888888;
+    line-height: 16px;
+    word-break: keep-all;
+}
+
+#profileImg {
+    display: none;
+}
+
+#profileImg-btn {
+    display: inline-block;
+    color: #DB202C;
+    border: solid 1px #DB202C;
+    min-width: auto;
+    padding: 0 16px;
+    height: 32px;
+    font-size: 14px;
+    line-height: 30px;
+    border-radius: 17px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.edit-btn-container {
+    margin: 60px 0;
+    text-align: center;
+}
+
+#cancleBtn,
+#editBtn {
+    width: 240px;
+    height: 70px;
+    margin: 2px 0;
+    padding: 0 10px;
+    color: #fff;
+    text-align: center;
+    border: 0;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#cancleBtn {
+    background-color: #cecdd4;
+}
+
+#editBtn {
+    background-color: #DB202C;
+}
+
+/* --------------------- editProfileChkPw, plusPoint css 부분 */
+.editProfileChkPw-pwChk-container,
+.plusPoint-container {
+    position: fixed;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.editProfileChkPw-pwChk-form,
+.plusPoint-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+#editProfileChkPw-span,
+#plusPoint-span {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#editProfileChkPw-pw,
+#plusPoint-input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 400px;
+    height: 40px;
+    background-color: #dddddd;
+    border: 0;
+}
+
+#editProfileChkPw-pwChkBtn,
+#plusPointSubBtn {
+    width: 100%;
+    height: 40px;
+    background-color: #DB202C;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ----------------pointHistory css 부분 */
+.pointHistory-container {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.pointHistoryBtn-container {
+	margin: 20px auto;
+	max-width: 50%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#payHistoryBtn,
+#chargeHistoryBtn {
+	width: 40%;
+	height: 65px;
+	margin: 20px;
+	border: 0;
+	border-radius: 12px;
+	background-color: #DB202C;
+	color: #fff;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.pointHistory-table {
+	margin: 20px auto;
+	width: 50%;
+}
+
+.pointHistory-table th {
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.pointHistory-table .th-nickname {
+	width: 10%;
+}
+
+.pointHistory-table .th-historyNm {
+	width: 10%;
+}
+
+.pointHistory-table .th-regDt {
+	width: 20%;
+}
+
+.pointHistory-table th, td {
+	border-bottom: 2px solid #dddddd;
+	height: 30px;
+}
+
+.pointHistory-result {
+	text-align: center;
+}
+
+/* ---------------contents css부분 */
+.contents-container {
+	max-width: 1280px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.contents-info {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.contentBtn-container {
+	margin: 20px auto 50px;
+	max-width: 50%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#netflixBtn,
+#watchaBtn {
+	width: 40%;
+	height: 65px;
+	margin: 20px;
+	border: 1px solid #DB202C;
+	border-radius: 12px;
+	background-color: #fff;
+	color: #000;
+	font-size: 24px;
+	font-weight: bold;
+	cursor: pointer;
+	outline: none;
+}
+
+#conList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.contents-img {
+	margin: 10px;
+}
+
+/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width:768px) and (max-width:1023px) {
+    #nav-home-li {
+    	display: none;
+    }
+    
+    #index-logout-btn {
+    	display: none;
+    }
+    
+    .phone-img {
+		display: none;	    	
+    }
+    
+    .intro-box-title-span {
+    	font-size: 20px;
+    }
+    
+    .intro-box-span {
+    	font-size: 16px;
+    }
+    
+    .board-article {
+		width: 260px;
+	}
+    
+    
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (max-width:767px) {
+    .nav-container {
+    	padding: 0;
+    }   
+    
+    #watnet-logo {
+    	margin: 0 10px;
+    	width: 70px;
+    	height: auto;
+    }
+    
+    #nav-title-ul {
+    	padding: 0;
+    }
+    
+    #nav-title-ul > li {
+    	font-size: 14px; 
+    	margin: 5px;
+    }
+    
+    #nav-home-li {
+    	display: none;
+    }
+    
+    #index-logout-btn {
+    	display: none;
+    }
+    
+    .phone-img {
+		display: none;	    	
+    }
+    
+    .index-span {
+    	font-size: 30px;
+    }
+    
+    .index-second-span {
+    	font-size: 18px;
+    }
+    
+    .intro-span {
+    	font-size: 25px;
+    	margin: 0;
+    }
+    
+    #intro-left-img {
+    	width: 120px;
+    	height: auto;
+    	margin: 20px 0 0 0;
+	}
+
+	#intro-right-img {
+	    width: 140px;
+	    height: auto;
+	}
+	
+	.intro-box-title-span {
+		font-size: 16px;
+	}
+	
+	.intro-box-span {
+		font-size: 12px;
+	}
+	
+	.recVideo-img {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.recVideo-img > img {
+	    width: 40%;
+	    height: auto;
+	    margin: 10px;
+	    border-radius: 20px;
+	    cursor: pointer;
+	}
+	
+	.board-article {
+		width: 260px;
+	}
+    
+}

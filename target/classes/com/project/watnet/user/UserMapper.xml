@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.project.watnet.user.UserMapper">
+ 	<insert id="insUser" useGeneratedKeys="true" keyProperty="userPk">
+ 		INSERT INTO t_user
+ 		( userId, userPw, userMail, nickname, pNum, profileImg, userPoint, userCategory )
+ 		VALUES
+ 		( #{userId}, #{userPw}, #{userMail}, #{nickname}, #{pNum}, #{profileImg}, #{userPoint}, #{userCategory})
+ 	</insert>
+ 	
+ 	<insert id="insUtils">
+ 		INSERT INTO t_utils
+ 		(pNum, tempPw)
+ 		VALUES
+ 		( #{pNum}, #{tempPw} )
+ 	</insert>
+ 	
+ 	<insert id="insPointHistory">
+ 		INSERT INTO t_point_history
+ 		(userPk, point, result)
+ 		VALUES
+ 		(#{userPk}, #{point}, #{result}+#{point})
+ 	</insert>
+ 
+ 	<select id="selUser" resultType="UserDomain">
+ 		SELECT * FROM t_user
+ 		<choose>
+ 			<when test="userId != null and userId != ''">
+		 		WHERE userId = #{userId} 			
+ 			</when>
+ 			<when test="nickname != null and nickname != ''">
+		 		WHERE nickname = #{nickname} 			
+ 			</when>
+ 			<when test="pNum != null and pNum != ''">
+		 		WHERE pNum = #{pNum} 			
+ 			</when>
+ 			<when test="userPk != null and userPk != ''">
+ 				WHERE userPk = #{userPk}
+ 			</when>
+ 		</choose>
+ 	</select>
+ 	
+ 	<select id="selUtils" resultType="UtilsEntity">
+ 		SELECT * FROM t_utils
+ 		WHERE tempPw = #{tempPw}
+ 	</select>
+ 	
+ 	<select id="selPointHistory" resultType="PointHistoryEntity">
+ 		SELECT * FROM t_point_history
+ 		WHERE userPk = #{userPk}
+ 		ORDER BY regDt DESC LIMIT 1
+ 	</select>
+ 	
+ 	<select id="selPlusPointHistory" resultType="PointHistoryDomain">
+ 		SELECT A.*, B.nickname
+ 		FROM t_point_history A
+ 		INNER JOIN t_user B
+ 		ON A.userPk = B.userPk
+ 		WHERE A.userPk = #{userPk}
+ 		AND A.point <![CDATA[ > ]]> 0
+ 	</select>
+ 	
+ 	<select id="selMinusPointHistory" resultType="PointHistoryDomain">
+ 		SELECT A.*, B.nickname
+ 		FROM t_point_history A
+ 		INNER JOIN t_user B
+ 		ON A.userPk = B.userPk
+ 		WHERE A.userPk = #{userPk}
+ 		AND A.point <![CDATA[ < ]]> 0
+ 	</select>
+ 	
+ 	<update id="updPw">
+ 		UPDATE t_user
+ 		SET userPw = #{userPw}
+ 		WHERE userPk = #{userPk}
+ 	</update>
+ 	
+ 	<update id="updPoint">
+ 		UPDATE t_user
+ 		SET userPoint = userPoint+ #{modPoint}
+ 		WHERE userId = #{userId}
+ 	</update>
+ 	
+ 	<update id="updProfile">
+ 		UPDATE t_user
+ 		SET userPw = #{userPw}, nickname = #{nickname}, userMail = #{userMail}, pNum = #{pNum}, profileImg = #{profileImg}
+ 		WHERE userPk = #{userPk}
+ 	</update>
+ 	
+ 	<update id="updPaidPoint">
+ 		UPDATE t_user
+ 		SET userPaidPoint = userPaidPoint + #{userPaidPoint}
+ 		WHERE userPk = #{userPk}
+ 	</update>
+ 	
+ 	<delete id="delUtils">
+ 		DELETE FROM t_utils
+ 		WHERE tempPw = #{tempPw}
+ 	</delete>
+ 	
+ </mapper>

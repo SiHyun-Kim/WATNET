@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.project.watnet.board.BoardMapper">
+ 	
+ 	<insert id="insBoard" useGeneratedKeys="true" keyProperty="boardPk">
+ 		INSERT INTO t_board
+ 		(category, title, shareId, sharePw, leaderPk, leaderpNum, startDt, endDt, price, ctnt)
+ 		VALUES
+ 		(#{category}, #{title}, #{shareId}, #{sharePw}, #{leaderPk}, #{leaderpNum}, #{startDt}, #{endDt}, #{price}, #{ctnt})
+ 	</insert>
+ 	
+ 	<insert id="makeParty">
+ 		INSERT INTO t_partyuser
+ 		(boardPk, userPk, isLeader)
+ 		VALUES
+ 		(#{boardPk}, #{userPk}, #{isLeader})
+ 	</insert>
+ 	
+ 	<insert id="insParty">
+ 		INSERT INTO t_partyuser
+ 		(boardPk, userPk)
+ 		VALUES
+ 		(#{boardPk}, #{userPk})
+ 	</insert>
+ 	
+ 	<select id="selBoardList" resultType="BoardEntity">
+ 		SELECT * FROM t_board
+ 		WHERE category = #{category}
+ 		AND recruitNum <![CDATA[ < ]]> 4 
+ 		AND isDel = 0
+ 		ORDER BY startDt
+ 		LIMIT #{sIdx}, #{rowCnt}
+ 	</select>
+ 	
+ 	<select id="selMaxPageNum" resultType="int">
+ 		SELECT CEIL(COUNT(boardPk) / #{rowCnt})
+		FROM t_board
+		WHERE category = #{category}
+		AND isDel = 0
+ 	</select>
+ 	
+ 	<select id="getLeaderPk" resultType="int">
+ 		SELECT leaderPk FROM t_board
+ 		WHERE boardPk = #{boardPk}
+ 	</select>
+ 	
+ 	<select id="selParty" resultType="PartyUserEntity">
+ 		SELECT * FROM t_partyuser
+ 		<choose>
+ 			<when test="boardPk != null and boardPk != ''">
+ 				WHERE boardPk = #{boardPk}
+ 			</when>
+ 			<when test="userPk != null and userPk != ''">
+ 				WHERE userPk = #{userPk}
+ 			</when>
+ 		</choose>
+ 	</select>
+ 	
+ 	<select id="selBoard" resultType="BoardDomain">
+ 		SELECT A.*, B.nm, C.nickname
+		FROM t_board A
+		INNER JOIN t_board_manage B
+		ON A.category = B.category
+		INNER JOIN t_user C
+		ON A.leaderPk = C.userPk
+		WHERE A.boardPk = #{boardPk}
+ 	</select>
+ 	
+ 	<select id="selUserProfile" resultType="UserDomain">
+ 		SELECT A.*, B.userPk, B.nickname, B.profileImg, B.userId
+ 		FROM t_partyuser A
+ 		INNER JOIN t_user B
+ 		ON A.userPk = B.userPk
+ 		WHERE A.boardPk = #{boardPk}
+ 	</select>
+ 	
+ 	<update id="updTempPoint">
+ 		UPDATE t_board
+ 		SET tempPoint = tempPoint + #{modTempPoint}
+ 		WHERE boardPk = #{boardPk}
+ 	</update>
+ 	
+ 	<update id="updPlusRecruitNum">
+ 		UPDATE t_board
+ 		SET recruitNum = recruitNum + 1
+ 		WHERE boardPk = #{boardPk}
+ 	</update>
+ 	
+ 	<update id="updMinusRecruitNum">
+ 		UPDATE t_board
+ 		SET recruitNum = recruitNum - 1
+ 		WHERE boardPk = #{boardPk}
+ 	</update>
+ 	
+ 	<delete id="quitParty">
+ 		DELETE FROM t_partyuser
+ 		<choose>
+ 			<when test="isLeader == 1">
+ 				WHERE boardPk = #{boardPk}
+ 			</when>
+ 			<otherwise>
+ 				WHERE userPk = #{userPk}	
+ 			</otherwise>
+ 		</choose>
+ 	</delete>
+ 	
+ 	<delete id="delBoard">
+ 		DELETE FROM t_board
+ 		WHERE boardPk = #{boardPk}
+ 	</delete>
+ 	
+ 	<delete id="delPost">
+ 		DELETE FROM t_post
+ 		<choose>
+ 			<when test="isLeader == 1">
+ 				WHERE boardPk = #{boardPk}
+ 			</when>
+ 			<otherwise>
+ 				WHERE sendUserPk = #{userPk}	
+ 			</otherwise>
+ 		</choose>
+ 	</delete>
+ 	
+ </mapper>
